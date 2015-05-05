@@ -67,21 +67,21 @@ if (Meteor.users.find().count() === 0 ) {
   });
   hanchaoGroupDoc = Groups.findOne(hanchaoGroupId)
   var qiecuoPostId = Posts.insert({
-    title: '来切磋一下',
+    //title: '来切磋一下',
     createrId: zhangfeiId,
     author : zhangfeiDoc['profile']['name'],  
     groupId: shuguoGroupId,
     body: '最近手痒，大哥二哥要不要切磋切磋'
   });
   var chunqiuPostId = Posts.insert({
-    title: '约人看书',
+    //title: '约人看书',
     createrId: guanyuId, 
     author : guanyuDoc['profile']['name'],
     groupId: shuguoGroupId,
     body: '有人想一起看春秋么？'
   });
   var buyaodalePostId = Posts.insert({
-    title: '不要打了',
+    //title: '不要打了',
     createrId: hanxiandiId,
     author : hanxiandiDoc['profile']['name'],
     groupId: hanchaoGroupId,
