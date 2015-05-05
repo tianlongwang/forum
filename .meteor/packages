@@ -7,8 +7,8 @@
 meteor-platform
 insecure
 iron:router
-accounts-password
-artwells:accounts-guest
 autopublish
 twbs:bootstrap
 accounts-base
+accounts-password
+ian:accounts-ui-bootstrap-3
