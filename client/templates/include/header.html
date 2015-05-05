@@ -11,9 +11,13 @@
         <a class="navbar-brand" href="{{pathFor 'groupsList'}}">群秘 -- 最好用的大群管家</a>
       </div>
       <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav">
+          <li><a href="{{pathFor 'groupCreate'}}">建群</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
           {{> loginButtons}}
-</ul> </div>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>

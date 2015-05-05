@@ -7,7 +7,6 @@
 meteor-platform
 insecure
 iron:router
-autopublish
 twbs:bootstrap
 accounts-base
 accounts-password
