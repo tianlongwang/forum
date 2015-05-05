@@ -44,7 +44,7 @@ body {
   /* For modern browsers */
   /* For IE 6/7 (trigger hasLayout) */
   
-  *zoom: 1;
+  *zoom: 2;
   position: relative;
   opacity: 1;
 }
@@ -84,19 +84,21 @@ body {
 .group .group-content h3 {
   margin: 0;
   line-height: 1.4;
-  font-size: 18px;
+  font-size: 20px;
+  color: #FF00FF;
 }
 
 .group .group-content h3 a {
   display: inline-block;
   margin-right: 5px;
+  color: #FF0000;
 }
 
 .group .group-content h3 span {
   font-weight: normal;
   font-size: 14px;
   display: inline-block;
-  color: #aaaaaa;
+  color: #FF00FF;
 }
 
 .group .group-content p {

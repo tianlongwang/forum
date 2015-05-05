@@ -1,3 +1,10 @@
 <template name="groupPage">
   {{> groupItem}}
+  
+  <div class="posts">
+    {{#each posts}}
+      {{> postItem}}
+    {{/each}}
+  </div>
+
 </template>

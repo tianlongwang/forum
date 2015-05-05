@@ -1,16 +1,3 @@
-if (Posts.find().count() === 0) { Posts.insert({
-    title: 'Introducing Telescope',
-    url: 'http://sachagreif.com/introducing-telescope/'
-  });
-  Posts.insert({
-    title: 'Meteor',
-    url: 'http://meteor.com'
-});
-  Posts.insert({
-    title: 'The Meteor Book',
-    url: 'http://themeteorbook.com'
-}); 
-}
 
 if (Meteor.users.find().count() === 0 ) {
     var guanyuId = Accounts.createUser({
@@ -19,7 +6,7 @@ if (Meteor.users.find().count() === 0 ) {
         password: 'guanyu',
         profile: {
           name:'关羽',
-          contactIDList: [],
+          contactIdList: [],
           nameCard: {}
         }
     });
@@ -29,7 +16,7 @@ if (Meteor.users.find().count() === 0 ) {
         password: 'zhangfei',
         profile: {
           name:'张飞',
-          contactIDList: [],
+          contactIdList: [],
           nameCard: {}
         }
     });
@@ -39,7 +26,7 @@ if (Meteor.users.find().count() === 0 ) {
         password: 'caocao',
         profile: {
           name:'曹操',
-          contactIDList: [],
+          contactIdList: [],
           nameCard: {}
         }
     });
@@ -49,7 +36,7 @@ if (Meteor.users.find().count() === 0 ) {
         password: '',
         profile: {
           name:'汉献帝',
-          contactIDList: [],
+          contactIdList: [],
           nameCard: {}
         }
     });
@@ -59,20 +46,45 @@ if (Meteor.users.find().count() === 0 ) {
         password: 'liubei',
         profile: {
           name:'刘备',
-          contactIDList: [],
+          contactIdList: [],
           nameCard: {}
         }
     });
-}
-if (Groups.find().count() === 0){
-  Groups.insert({
+    liubeiDoc = Meteor.users.findOne(liubeiId) 
+    guanyuDoc = Meteor.users.findOne(guanyuId)
+    zhangfeiDoc = Meteor.users.findOne(zhangfeiId)
+    hanxiandiDoc = Meteor.users.findOne(hanxiandiId)
+  var shuguoGroupId = Groups.insert({
     title: "蜀国",
-    createrID: Meteor.users.findOne({'username':'liubei'})['_id'],
-    author : Meteor.users.findOne({'username':'liubei'})['profile']['name']  
+    createrId: liubeiId,
+    author : liubeiDoc['profile']['name']  
   });
-  Groups.insert({
+  shuguoGroupDoc = Groups.findOne(shuguoGroupId)
+  var hanchaoGroupId = Groups.insert({
     title: "汉朝群雄",
-    createrID: Meteor.users.findOne({'username':'hanxiandi'})['_id'],
-    author:Meteor.users.findOne({'username':                            'hanxiandi'})['profile']['name'],
+    createrId: hanxiandiId,
+    author : hanxiandiDoc['profile']['name']  
   });
+  hanchaoGroupDoc = Groups.findOne(hanchaoGroupId)
+  var qiecuoPostId = Posts.insert({
+    title: '来切磋一下',
+    createrId: zhangfeiId,
+    author : zhangfeiDoc['profile']['name'],  
+    groupId: shuguoGroupId,
+    body: '最近手痒，大哥二哥要不要切磋切磋'
+  });
+  var chunqiuPostId = Posts.insert({
+    title: '约人看书',
+    createrId: guanyuId, 
+    author : guanyuDoc['profile']['name'],
+    groupId: shuguoGroupId,
+    body: '有人想一起看春秋么？'
+  });
+  var buyaodalePostId = Posts.insert({
+    title: '不要打了',
+    createrId: hanxiandiId,
+    author : hanxiandiDoc['profile']['name'],
+    groupId: hanchaoGroupId,
+    body: '你们不要打了，生灵涂炭'
+  }); 
 }
