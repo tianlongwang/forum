@@ -17,12 +17,10 @@ if (Groups.find().count() == 0){
   Groups.insert({
     title: "蜀国",
     author: "刘备",
-    url : "http://www.baidu.com/"
   
   });
   Groups.insert({
     title: "汉朝群雄",
     author: "汉献帝",
-    url : "http://www.baidu.com/"
   });
 }
