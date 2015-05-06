@@ -1,3 +1,16 @@
 <template name="postPage">
   {{> postItem}}
+  <ul class='comments'>
+    {{#each comments}}
+      {{> commentItem}}
+    {{/each}}
+  </ul>
+
+  {{#if currentUser}}
+    {{> commentSubmit}}
+  {{else}}
+    <p>回复一下</p>
+  {{/if}}
+
+
 </template>

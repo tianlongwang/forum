@@ -3,11 +3,16 @@ Template.groupCreate.events({
     e.preventDefault();
 
     var group = {
-      title: $(e.target).find('[name=title]').val()
+      title: $(e.target).find('[name=title]').val(),
+      createrId: Meteor.userId()
     };
     
-    group._id = Groups.insert(group);
-    Router.go('groupPage', group);
+    Meteor.call('groupInsert', group, function(error, result){
+      if (error)
+        return throwError(error.reason);
+  
+      Router.go('groupPage', result);
+    });
   }
 });
 
