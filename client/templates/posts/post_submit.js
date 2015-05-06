@@ -4,11 +4,14 @@ Template.postSubmit.events({
 
     var post = {
       title: $(e.target).find('[name=title]').val(),
-      groupId: this._id
+      groupId: this._id,
+      createrId: Meteor.userId(),
+      author: Meteor.user().profile.name,
+      createdTime:new Date()
     };
 
     post._id = Posts.insert(post);
-    Router.go('postPage', post);
+    //Router.go('postPage', post);
   }
 });
       

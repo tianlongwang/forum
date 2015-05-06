@@ -1,9 +1,17 @@
 <template name="postItem">
   <div class="post">
     <div class="post-content">
-      <h3><a href="{{pathFor 'postPage'}}">{{title}}</a></h3>
-      <p> {{author}}发帖 </p>
+      <p> {{author}}： <a href="{{pathFor 'postPage'}}">{{title}}</a></p> 
       <a href="{{pathFor 'postPage'}}">{{commentsCount}} 条回复 </a>{{createdTime}}
     </div>
   </div>
+    <ul class='comments'>
+    {{#each comments}}
+      {{> commentItem}}
+    {{/each}}
+  {{#if currentUser}}
+    {{> commentSubmit}}
+  {{/if}}
+  </ul>
+
 </template>

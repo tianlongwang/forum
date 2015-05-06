@@ -3,11 +3,8 @@
     {{> groupItem}}
   {{/with}}
   {{> postItem}}
-  <ul class='comments'>
-    {{#each comments}}
-      {{> commentItem}}
-    {{/each}}
-  </ul>
+
+
 
   {{#if currentUser}}
     {{> commentSubmit}}
