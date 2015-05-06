@@ -1,4 +1,7 @@
 <template name="postPage">
+  {{#with postGroup}}
+    {{> groupItem}}
+  {{/with}}
   {{> postItem}}
   <ul class='comments'>
     {{#each comments}}
@@ -8,8 +11,6 @@
 
   {{#if currentUser}}
     {{> commentSubmit}}
-  {{else}}
-    <p>回复一下</p>
   {{/if}}
 
 

@@ -1,5 +1,7 @@
+/*
 Template.commentItem.helpers({
   createdTimeText: function() {
-    return this.createdTime.toString();
+    return Date(this.createdTime).toString();
   } 
 });
+*/

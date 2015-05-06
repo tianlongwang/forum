@@ -1,7 +1,8 @@
 <template name="groupItem">
   <div class="group">
     <div class="group-content">
-      <h3><a href="{{pathFor 'groupPage'}}">{{title}}</a><span>{{author}}创立</span></h3>
+      <h3><a href="{{pathFor 'groupPage'}}">{{title}}</a></h3>
+      <p>{{author}}创立{{createdTime}}</p>
     </div>
   </div>
 </template>
