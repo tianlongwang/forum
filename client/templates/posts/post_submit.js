@@ -2,16 +2,18 @@ Template.postSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
 
+    var $title = $(e.target).find('[name=title]');
     var post = {
-      title: $(e.target).find('[name=title]').val(),
+      title: $title.val(),
       groupId: this._id,
-      createrId: Meteor.userId(),
-      author: Meteor.user().profile.name,
-      createdTime:new Date()
     };
 
-    post._id = Posts.insert(post);
-    //Router.go('postPage', post);
+    Meteor.call('postInsert', post, function(error, postId) {
+      if (error){
+        throwError(error.reason);
+      } else {
+        $title.val(''); // Clear content in title input text box.
+      }
+    });
   }
-});
-      
+});  
